@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <span> {{pageTitle}}</span>
+</mat-toolbar>
+<div class="container">
+    <form [formGroup]="editForm" class="form">
+        <mat-form-field [style.width.px]=700>
+            <mat-label>Nome</mat-label>
+            <input matInput name="name" formControlName="name" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=350>
+            <mat-label>CPF</mat-label>
+            <input type="number" maxlength="11" matInput name="cpf" formControlName="cpf" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=350>
+            <mat-label>Telefone</mat-label>
+            <input type="number" matInput name="phone" formControlName="phone" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=700>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=200>
+            <mat-label>CEP</mat-label>
+            <input type="number" matInput name="cep" (focusout)="getCompleteAddress()" formControlName="cep" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=200 class="readonly">
+            <mat-label>Estado</mat-label>
+            <input matInput readonly  name="state" formControlName="state" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=300 class="readonly">
+            <mat-label>Cidade</mat-label>
+            <input matInput readonly name="city" formControlName="city" required>
+        </mat-form-field>
+        <mat-form-field [style.width.px]=700 class="readonly">
+            <mat-label>Rua</mat-label>
+            <input matInput readonly name="street" formControlName="street" required>
+        </mat-form-field>
+        <div id="buttons">
+            <button mat-stroked-button color="primary" (click)="saveNewPerson()">Salvar</button>
+            <button mat-stroked-button (click)="goBackToList()">Cancelar</button>
+        </div>
+    </form>
+</div>
